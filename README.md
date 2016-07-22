@@ -54,3 +54,13 @@ Just Node. Node >= 4 LTS, recommend 6, [nvm](https://github.com/creationix/nvm)
 | `npm run test:cover` | run the entire test suite, capture coverage, and report |
 | `npm run test:debug` | build with source maps, start the test suite, wait debugger attach |
 | `npm run test:func` | used by CI to run functional tests against selenium grid |
+
+
+
+reducer stores
+
+separate stores, not using any batching - react component tree gets invoked everytime
+
+batch or reduce these
+
+should be one

@@ -32,3 +32,7 @@ app.registerStore(RouteStore);
 app.registerStore(ModalStore);
 
 export default app;
+
+
+//wire up, this is the startup component
+// fetcher plugin - specify xhr path for where everything lives

@@ -11,6 +11,7 @@ import debugLib from 'debug';
 import React from 'react';
 import { render } from 'react-dom';
 import { createElementWithContext } from 'fluxible-addons-react';
+// ref to universal pt of app
 import app from 'application/app';
 
 if (DEBUG) {
@@ -19,7 +20,10 @@ if (DEBUG) {
 }
 
 const debug = debugLib('client');
+// builds itself from all the stores, all the stores flattend into json
 const dehydratedState = window.App; // sent from the server
+// returns an error or fluxible context
+
 
 debug('rehydrating app');
 app.rehydrate(dehydratedState, (err, context) => {
@@ -39,3 +43,5 @@ app.rehydrate(dehydratedState, (err, context) => {
     document.getElementById('application')
   );
 });
+
+//

@@ -9,6 +9,11 @@ import error from './error';
 
 export const name = 'contact';
 
+
+
+// just doing posts
+//
+//
 /**
  * The create CRUD method definition.
  * Just directs work. Params are per Yahoo fetchr.
@@ -27,6 +32,6 @@ export function create (req, resource, params, body, config, callback) {
 }
 
 export default {
-  name,
+  name, // next part of path: _api/contact
   create
 };

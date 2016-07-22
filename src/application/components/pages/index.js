@@ -12,6 +12,7 @@ import { conformErrorStatus } from 'utils';
 import Spinner from './Spinner';
 import ContentPage from './ContentPage';
 import Contact from './contact';
+// import Foo from './foo';
 
 /***
  * Page type name to ReactClass map ("name" => ReactClass).
@@ -23,6 +24,7 @@ import Contact from './contact';
  */
 const pageTypes = {
   ContentPage,
+  // Foo,
   Contact
 };
 

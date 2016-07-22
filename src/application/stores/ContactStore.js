@@ -8,6 +8,7 @@ export const ContactStore = createStore({
   storeName: 'ContactStore',
 
   handlers: {
+      // pt3
     'UPDATE_CONTACT_FIELDS': 'updateContactFields',
     'CREATE_CONTACT_SUCCESS': 'clearContactFields',
     'CREATE_CONTACT_FAILURE': 'setContactFailure'
@@ -32,6 +33,7 @@ export const ContactStore = createStore({
     this.name = fields.name || '';
     this.email = fields.email || '';
     this.message = fields.message || '';
+    // emits change to listeners
     this.emitChange();
   },
 

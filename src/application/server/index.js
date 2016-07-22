@@ -87,6 +87,7 @@ app.use(csrf({ cookie: true }));
 
 // Register services, handle service requests
 var fetchrPlugin = fluxibleApp.getPlugin('FetchrPlugin');
+// hides details of wher the app is and handles the ajax requests
 fetchrPlugin.registerService(servicesRoutes);
 fetchrPlugin.registerService(servicesPage);
 fetchrPlugin.registerService(servicesContact);
@@ -101,7 +102,11 @@ app.get(settings.web.robots, robots);
 app.get(settings.web.sitemap, sitemap);
 
 // Every other request gets the app bootstrap
+//attach services through modules in context
 app.use(main(fluxibleApp));
+
+// app.post(saveUserData)
+
 
 // Handle all errors
 app.use(errorHandler({

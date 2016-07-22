@@ -5,6 +5,7 @@
  * A Yahoo fetchr service definition for a page request
  */
 import data from './data';
+//format errors
 import error from './error';
 
 export const name = 'page';
@@ -19,7 +20,10 @@ export const name = 'page';
  * @param {Object} config - Not used.
  * @param {Function} callback - The callback to execute on completion.
  */
+// read crud action - this does the fetch
 export function read (req, resource, params, config, callback) {
+    // server side only
+    // data module - will do fetch acording to params
   return data.fetch(params, (err, data) => {
     callback(error(err), data);
   });

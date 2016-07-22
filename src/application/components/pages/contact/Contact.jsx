@@ -11,6 +11,8 @@ import ContactNav from './Nav';
 import { createContactElement } from './elements';
 import Spinner from '../Spinner';
 
+// controlling view that handles the multipart form
+
 // manually keep in sync with value in _anim.scss
 const animTimeout = 500;
 
@@ -42,6 +44,9 @@ const Contact = React.createClass({
   },
 
   componentDidMount: function () {
+      // wired up manually
+      // pt4
+      // wired
     this.context.getStore('ContactStore').addChangeListener(this.onChange);
   },
 
@@ -58,6 +63,7 @@ const Contact = React.createClass({
   render: function () {
     let content;
 
+    // handle request not fulfilled yet
     if (this.props.spinner || !this.state.settled) {
       content = React.createElement(Spinner);
     } else {
@@ -166,6 +172,8 @@ const Contact = React.createClass({
   saveFields: function (fields) {
     const complete = this.state.step === (this.props.stepFinal - 1);
 
+    // executes action but doesnt send right away cause multipart form pt1
+    // pt1
     this.setState({
       settled: !complete
     }, function () {

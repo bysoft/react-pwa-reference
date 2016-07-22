@@ -17,6 +17,10 @@ import pages from './pages';
 
 const debug = debugLib('application');
 
+
+// pages - when there is a routes action, will go out to fetchr and grab resoruce in github that correspondes to route, - FRED ,
+// routes will look up that object in the payload
+
 let Application = React.createClass({
   propTypes: {
     hasServiceWorker: React.PropTypes.bool.isRequired,
@@ -149,6 +153,11 @@ let Application = React.createClass({
   }
 });
 
+// pages - routeStore.getRoutes
+// return props to application
+// making application listen to change events from all the stores
+// automate - change handler
+// any of these stores act as an event source to cuas ethe tree to update
 Application = connectToStores(
   Application, ['ContentStore', 'RouteStore', 'ModalStore'], (context) => {
     const
@@ -175,6 +184,7 @@ Application = connectToStores(
       pageName: pageName,
       pageTitle: pageTitle,
       pageModels: contentStore.getCurrentPageModels(),
+      //this.props is this
       pages: routeStore.getRoutes(),
       modal: {
         open: modalStore.getIsOpen(),
@@ -193,3 +203,17 @@ Application = provideContext(
 );
 
 export default Application;
+
+
+// store is application state - not the same as props
+//
+// app state spread across bunch of files
+// reducer stores - actual store is not in target of actions. just a reducer which will update the main application store
+//
+//
+// component
+// > execute an action creator
+// > do some ajax (fetchr or saga)
+// > execute the action
+// > ignite the store (listening from the dispatcher)
+// > emit change event (ignite top level react component)

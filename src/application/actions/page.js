@@ -15,6 +15,7 @@ const debug = debugLib('actions:page');
  * @param {String} payload.pageTitle - The page title.
  * @param {Function} done - The callback to execute on request completion.
  */
+// does page request - client and server side of getting API data
 function serviceRequest (context, payload, done) {
   debug('Page service request start');
 

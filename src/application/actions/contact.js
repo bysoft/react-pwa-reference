@@ -16,8 +16,10 @@ const debug = debugLib('actions:contact');
  * @param {Function} done - The callback to execute on completion.
  */
 function serviceRequest (context, fields, done) {
+  // calls on fluxible context, uses the service, and calls craete
   context.service.create(
     'contact',
+    // pwa stuff
     syncable.contact(fields, fields.email), {}, {}, (err) => {
       if (err) {
         debug('dispatching CREATE_CONTACT_FAILURE');
@@ -43,8 +45,11 @@ function serviceRequest (context, fields, done) {
  */
 export function contact (context, payload, done) {
   debug('dispatching UPDATE_CONTACT_FIELDS', payload.fields);
+  // when this is called will dispatch data
+  // pt2
   context.dispatch('UPDATE_CONTACT_FIELDS', payload.fields);
 
+  // returns if not complete
   if (!payload.complete) {
     return done();
   }
